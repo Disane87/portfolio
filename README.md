@@ -1,6 +1,6 @@
-# marco-franke.dev
+# disane.dev
 
-Personal portfolio — Marco Franke, Senior Frontend Developer.
+Personal portfolio — Senior Frontend Developer.
 
 ## Stack
 
