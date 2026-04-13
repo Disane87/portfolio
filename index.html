@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marco Franke — Senior Frontend Developer</title>
+  <meta name="description" content="Marco Franke — Senior Frontend-Entwickler aus Krefeld. 18+ Jahre Erfahrung mit JavaScript, TypeScript, Angular, Node.js und Home Assistant." />
+  <meta name="theme-color" content="#05060a" />
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Marco Franke — Senior Frontend Developer" />
+  <meta property="og:description" content="18+ Jahre Full-Stack · TypeScript · Angular · Node.js · Home Assistant · Open Source" />
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/956158?v=4" />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="icon" href="https://avatars.githubusercontent.com/u/956158?v=4" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-[#05060a] text-slate-100 antialiased overflow-x-hidden">
+
+  <!-- Scroll Progress + Noise + Custom Cursor -->
+  <div class="scroll-progress" id="scroll-progress"></div>
+  <div class="noise"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+  <div class="cursor-dot" id="cursor-dot"></div>
+
+  <!-- ═══════════════════ NAVIGATION ═══════════════════ -->
+  <nav class="fixed top-0 z-50 w-full backdrop-blur-xl bg-[#05060a]/60 border-b border-white/5">
+    <div class="mx-auto max-w-7xl flex items-center justify-between px-6 py-4">
+      <a href="#hero" class="flex items-center gap-2 text-lg font-bold tracking-tight">
+        <span class="inline-block h-2.5 w-2.5 rounded-full bg-emerald-400 pulse-green"></span>
+        <span class="text-white">marco<span class="text-indigo-400">.franke</span></span>
+      </a>
+      <button id="menu-toggle" class="md:hidden text-slate-300 hover:text-white" aria-label="Menü öffnen">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <ul id="nav-links" class="hidden md:flex gap-8 text-sm font-medium text-slate-400">
+        <li><a href="#about" class="hover:text-white transition-colors link-fancy">Über</a></li>
+        <li><a href="#experience" class="hover:text-white transition-colors link-fancy">Erfahrung</a></li>
+        <li><a href="#projects" class="hover:text-white transition-colors link-fancy">Projekte</a></li>
+        <li><a href="#skills" class="hover:text-white transition-colors link-fancy">Skills</a></li>
+        <li><a href="#contact" class="hover:text-white transition-colors link-fancy">Kontakt</a></li>
+      </ul>
+      <a href="https://github.com/Disane87" target="_blank" rel="noopener"
+         class="hidden md:inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-xs font-medium text-slate-300 hover:border-indigo-400 hover:text-white transition-all magnetic">
+        <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.085 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        @Disane87
+      </a>
+    </div>
+    <ul id="mobile-menu" class="hidden md:hidden flex-col gap-4 px-6 pb-6 text-sm font-medium text-slate-400">
+      <li><a href="#about" class="hover:text-white transition-colors">Über</a></li>
+      <li><a href="#experience" class="hover:text-white transition-colors">Erfahrung</a></li>
+      <li><a href="#projects" class="hover:text-white transition-colors">Projekte</a></li>
+      <li><a href="#skills" class="hover:text-white transition-colors">Skills</a></li>
+      <li><a href="#contact" class="hover:text-white transition-colors">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <!-- ═══════════════════ HERO ═══════════════════ -->
+  <section id="hero" class="relative flex min-h-screen items-center overflow-hidden px-6 pt-32 pb-20">
+    <div class="aurora parallax" data-parallax="0.3"></div>
+    <div class="absolute inset-0 grid-bg parallax" data-parallax="0.15"></div>
+    <canvas id="particles"></canvas>
+
+    <div class="relative z-10 mx-auto max-w-7xl w-full">
+      <div class="flex flex-col items-start gap-8">
+
+        <!-- Status Badge -->
+        <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 backdrop-blur px-4 py-1.5 text-xs font-medium text-slate-300">
+          <span class="inline-block h-2 w-2 rounded-full bg-emerald-400 pulse-green"></span>
+          Verfügbar für neue Projekte · Remote aus Krefeld
+        </div>
+
+        <!-- Headline -->
+        <h1 class="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black leading-[0.95] tracking-tighter">
+          <span class="block text-slate-500 text-2xl sm:text-3xl md:text-4xl font-medium mb-4 tracking-normal">Hallo, ich bin</span>
+          <span class="block text-white">Marco</span>
+          <span class="block gradient-text glitch" data-text="Franke." data-scramble="Franke.">Franke.</span>
+        </h1>
+
+        <!-- Subheadline -->
+        <p class="max-w-2xl text-xl sm:text-2xl text-slate-400 leading-relaxed font-light">
+          Senior Frontend-Entwickler mit <strong class="text-white font-semibold">18+ Jahren</strong> Erfahrung.
+          Ich baue <strong class="text-white font-semibold">skalierbare Web-Anwendungen</strong>,
+          betreibe ein <strong class="text-white font-semibold">Homelab mit UniFi-Netzwerk</strong> und veröffentliche Open Source auf GitHub.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-wrap gap-4">
+          <a href="#projects"
+             class="group inline-flex items-center gap-3 rounded-full bg-white px-7 py-4 text-sm font-semibold text-[#05060a] hover:bg-indigo-400 hover:text-white shadow-2xl shadow-indigo-500/20 transition-all magnetic">
+            Projekte ansehen
+            <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+          <a href="#contact"
+             class="inline-flex items-center gap-3 rounded-full border border-white/20 px-7 py-4 text-sm font-semibold text-white hover:border-white hover:bg-white/5 transition-all magnetic">
+            Kontakt aufnehmen
+          </a>
+          <a href="https://github.com/Disane87" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-3 rounded-full border border-white/10 px-7 py-4 text-sm font-semibold text-slate-400 hover:text-white hover:border-white/30 transition-all magnetic">
+            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.085 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+        </div>
+
+        <!-- Live Stats -->
+        <div class="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6 w-full max-w-3xl">
+          <div class="border-l-2 border-indigo-500/50 pl-4">
+            <div class="text-3xl sm:text-4xl font-black text-white counter" data-count="18">0</div>
+            <div class="text-xs text-slate-500 uppercase tracking-wider mt-1">Jahre Erfahrung</div>
+          </div>
+          <div class="border-l-2 border-emerald-500/50 pl-4">
+            <div class="text-3xl sm:text-4xl font-black text-white counter" id="stat-repos" data-count="53">0</div>
+            <div class="text-xs text-slate-500 uppercase tracking-wider mt-1">Public Repos</div>
+          </div>
+          <div class="border-l-2 border-pink-500/50 pl-4">
+            <div class="text-3xl sm:text-4xl font-black text-white counter" id="stat-stars" data-count="330">0</div>
+            <div class="text-xs text-slate-500 uppercase tracking-wider mt-1">GitHub Stars</div>
+          </div>
+          <div class="border-l-2 border-cyan-500/50 pl-4">
+            <div class="text-3xl sm:text-4xl font-black text-white counter" data-count="100">0</div>
+            <div class="text-xs text-slate-500 uppercase tracking-wider mt-1">% Coffee-Powered</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll hint -->
+      <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-500 text-xs">
+        <span class="uppercase tracking-widest">scroll</span>
+        <svg class="h-5 w-5 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ MARQUEE (Tech Stack) ═══════════════════ -->
+  <section class="relative py-10 border-y border-white/5 bg-white/[0.02]">
+    <div class="marquee">
+      <div class="marquee-track font-mono text-2xl sm:text-3xl font-bold text-slate-700">
+        <span>TypeScript</span><span class="text-indigo-500">✦</span>
+        <span>Angular</span><span class="text-indigo-500">✦</span>
+        <span>Node.js</span><span class="text-indigo-500">✦</span>
+        <span>Azure DevOps</span><span class="text-indigo-500">✦</span>
+        <span>GitHub Actions</span><span class="text-indigo-500">✦</span>
+        <span>Claude · MCP</span><span class="text-indigo-500">✦</span>
+        <span>Docker · Portainer</span><span class="text-indigo-500">✦</span>
+        <span>UniFi</span><span class="text-indigo-500">✦</span>
+        <span>Home Assistant</span><span class="text-indigo-500">✦</span>
+        <span>Bambulab H2S</span><span class="text-indigo-500">✦</span>
+        <span>ESP / ESPHome</span><span class="text-indigo-500">✦</span>
+        <span>PCB · Löten</span><span class="text-indigo-500">✦</span>
+      </div>
+      <div class="marquee-track font-mono text-2xl sm:text-3xl font-bold text-slate-700" aria-hidden="true">
+        <span>TypeScript</span><span class="text-indigo-500">✦</span>
+        <span>Angular</span><span class="text-indigo-500">✦</span>
+        <span>Node.js</span><span class="text-indigo-500">✦</span>
+        <span>Python</span><span class="text-indigo-500">✦</span>
+        <span>Vue</span><span class="text-indigo-500">✦</span>
+        <span>Tailwind</span><span class="text-indigo-500">✦</span>
+        <span>Home Assistant</span><span class="text-indigo-500">✦</span>
+        <span>Docker</span><span class="text-indigo-500">✦</span>
+        <span>REST / GraphQL</span><span class="text-indigo-500">✦</span>
+        <span>ESP / Arduino</span><span class="text-indigo-500">✦</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ ABOUT ═══════════════════ -->
+  <section id="about" class="relative py-32 px-6">
+    <div class="mx-auto max-w-7xl">
+      <div class="grid gap-16 lg:grid-cols-5 items-center">
+
+        <div class="lg:col-span-2 flex justify-center reveal">
+          <div class="relative">
+            <div class="absolute -inset-4 rounded-full bg-gradient-to-br from-indigo-500 via-emerald-500 to-pink-500 opacity-30 blur-2xl animate-pulse"></div>
+            <div class="relative h-72 w-72 sm:h-80 sm:w-80 rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-emerald-500 p-1">
+              <img src="https://avatars.githubusercontent.com/u/956158?v=4"
+                   alt="Marco Franke"
+                   class="h-full w-full rounded-full object-cover bg-[#05060a]" />
+            </div>
+            <div class="absolute -bottom-2 -right-2 rounded-full bg-[#05060a] border-2 border-white/10 px-4 py-2 text-xs font-medium text-slate-300 backdrop-blur">
+              <span class="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400 pulse-green mr-2"></span>
+              Online
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-3 space-y-8 reveal">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-widest text-indigo-400 mb-3">Über mich</p>
+            <h2 class="text-4xl sm:text-5xl font-black tracking-tight text-white leading-tight">
+              Ich löse Probleme<br />mit <span class="gradient-text">sauberem Code.</span>
+            </h2>
+          </div>
+
+          <div class="space-y-5 text-lg text-slate-400 leading-relaxed">
+            <p>
+              Seit 2007 Softwareentwickler — angefangen als Azubi, heute als
+              <strong class="text-white font-semibold">Senior Frontend-Entwickler</strong> bei der
+              <a href="https://www.scholz-msconsulting.de/" target="_blank" rel="noopener" class="text-indigo-400 hover:text-indigo-300 link-fancy">scholz.msconsulting GmbH</a>
+              in Krefeld. Ich arbeite an vemas.NET — einem Branchen-ERP mit Fokus auf moderne Web-Stacks.
+            </p>
+            <p>
+              Privat bastle ich an <strong class="text-white">Home Assistant</strong>-Integrationen,
+              3D-Druck-Tools und Mikrocontroller-Projekten. Vieles davon lebt auf
+              <a href="https://github.com/Disane87" target="_blank" rel="noopener" class="text-indigo-400 hover:text-indigo-300 link-fancy">GitHub</a>
+              — <strong class="text-white">Spoolman für Home Assistant</strong> hat über 200 Stars und
+              <strong class="text-white">Docudigger</strong> (automatische Rechnungs-Abholung) ist zum Go-to-Tool für Steuer-Nerds geworden.
+            </p>
+            <p>
+              Zu Hause läuft ein vollwertiges <strong class="text-white">Homelab</strong>:
+              Unraid-Server mit Docker-Stack, UniFi-Netzwerk mit VLANs, eigene Subdomains via Reverse Proxy,
+              MQTT-Broker und Prometheus-Monitoring. Netzwerk und Infrastruktur sind für mich kein
+              Nebenschauplatz — ich verstehe, was unter der Haube läuft.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap gap-2">
+            <span class="rounded-full border border-indigo-500/30 bg-indigo-500/10 px-4 py-1.5 text-xs font-medium text-indigo-300">Krefeld, NRW</span>
+            <span class="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-xs font-medium text-emerald-300">Remote-fähig</span>
+            <span class="rounded-full border border-pink-500/30 bg-pink-500/10 px-4 py-1.5 text-xs font-medium text-pink-300">Open Source</span>
+            <span class="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 text-xs font-medium text-cyan-300">Smart Home</span>
+            <span class="rounded-full border border-amber-500/30 bg-amber-500/10 px-4 py-1.5 text-xs font-medium text-amber-300">Homelab / UniFi</span>
+            <span class="rounded-full border border-rose-500/30 bg-rose-500/10 px-4 py-1.5 text-xs font-medium text-rose-300">Team Lead</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ EXPERIENCE ═══════════════════ -->
+  <section id="experience" class="relative py-32 px-6 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent">
+    <div class="mx-auto max-w-7xl">
+      <div class="mb-16 reveal">
+        <p class="text-xs font-semibold uppercase tracking-widest text-indigo-400 mb-3">Berufserfahrung</p>
+        <h2 class="text-4xl sm:text-5xl font-black tracking-tight text-white leading-tight">
+          18 Jahre bei einem Arbeitgeber.<br />
+          <span class="gradient-text">Vom Azubi zum Senior.</span>
+        </h2>
+        <p class="mt-6 max-w-2xl text-lg text-slate-400">
+          Kontinuität statt Jobhopping — vier Rollen bei der
+          <a href="https://www.scholz-msconsulting.de/" target="_blank" rel="noopener" class="text-white underline decoration-indigo-400 underline-offset-4 hover:decoration-white">scholz.msconsulting GmbH</a>
+          (vemas.NET) in Krefeld. Software für den Mittelstand, ernsthaft gebaut.
+        </p>
+      </div>
+
+      <div class="relative space-y-6">
+        <!-- Company Card header -->
+        <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-indigo-500/10 via-white/5 to-emerald-500/10 p-8 backdrop-blur reveal glow-border">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div>
+              <div class="text-xs font-semibold uppercase tracking-widest text-indigo-400 mb-2">Seit Oktober 2007 · 18 Jahre 7 Monate</div>
+              <h3 class="text-2xl sm:text-3xl font-bold text-white">scholz.msconsulting GmbH</h3>
+              <p class="text-slate-400 mt-1">vemas.NET · Krefeld, Nordrhein-Westfalen</p>
+            </div>
+            <a href="https://www.scholz-msconsulting.de/" target="_blank" rel="noopener"
+               class="inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-2 text-xs font-medium text-white hover:bg-white hover:text-[#05060a] transition-all magnetic whitespace-nowrap">
+              Website besuchen
+              <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="relative pl-8 sm:pl-12 border-l-2 border-white/10 space-y-10">
+
+          <!-- Role 1 -->
+          <div class="relative reveal">
+            <div class="absolute -left-[calc(2rem+5px)] sm:-left-[calc(3rem+5px)] top-1 flex h-6 w-6 items-center justify-center rounded-full bg-indigo-500 shadow-lg shadow-indigo-500/50">
+              <div class="h-2 w-2 rounded-full bg-white"></div>
+            </div>
+            <div class="flex flex-wrap items-baseline gap-3 mb-2">
+              <span class="text-xs font-mono font-semibold text-indigo-400">Jan 2018 — heute</span>
+              <span class="text-xs text-slate-600">·</span>
+              <span class="text-xs text-slate-500">8 Jahre 4 Monate · Vollzeit</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white">Senior Frontend-Entwickler</h3>
+            <p class="mt-3 text-slate-400 leading-relaxed max-w-2xl">
+              Architektur und Weiterentwicklung moderner Web-Frontends für vemas.NET. Fokus auf
+              TypeScript, Angular, Component-Design-Systems und Performance. Mentoring, Code-Reviews,
+              Architektur-Entscheidungen.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="rounded-md bg-white/5 px-2.5 py-1 text-xs font-mono text-slate-300">TypeScript</span>
+              <span class="rounded-md bg-white/5 px-2.5 py-1 text-xs font-mono text-slate-300">Angular</span>
+              <span class="rounded-md bg-white/5 px-2.5 py-1 text-xs font-mono text-slate-300">RxJS</span>
+              <span class="rounded-md bg-white/5 px-2.5 py-1 text-xs font-mono text-slate-300">Design Systems</span>
+            </div>
+          </div>
+
+          <!-- Role 2 -->
+          <div class="relative reveal">
+            <div class="absolute -left-[calc(2rem+5px)] sm:-left-[calc(3rem+5px)] top-1 flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500 shadow-lg shadow-emerald-500/50">
+              <div class="h-2 w-2 rounded-full bg-white"></div>
+            </div>
+            <div class="flex flex-wrap items-baseline gap-3 mb-2">
+              <span class="text-xs font-mono font-semibold text-emerald-400">Okt 2014 — Jan 2018</span>
+              <span class="text-xs text-slate-600">·</span>
+              <span class="text-xs text-slate-500">3 Jahre 4 Monate</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white">Leiter der Kundenbetreuung</h3>
+            <p class="mt-3 text-slate-400 leading-relaxed max-w-2xl">
+              Aufbau und Leitung des Kundenbetreuungs-Teams. Schnittstelle zwischen Kunden,
+              Produktmanagement und Entwicklung. Prozess-Design, Eskalations-Management, technischer 2nd-Level-Support.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="rounded-md bg-white/5 px-2.5 py-1 text-xs font-mono text-slate-300">Team Lead</span>
+              <span class="rounded-md bg-white/5 px-2.5 py-1 text-xs font-mono text-slate-300">Customer Success</span>
+              <span class="rounded-md bg-white/5 px-2.5 py-1 text-xs font-mono text-slate-300">Prozesse</span>
+            </div>
+          </div>
+
+          <!-- Role 3 -->
+          <div class="relative reveal">
+            <div class="absolute -left-[calc(2rem+5px)] sm:-left-[calc(3rem+5px)] top-1 flex h-6 w-6 items-center justify-center rounded-full bg-pink-500 shadow-lg shadow-pink-500/50">
+              <div class="h-2 w-2 rounded-full bg-white"></div>
+            </div>
+            <div class="flex flex-wrap items-baseline gap-3 mb-2">
+              <span class="text-xs font-mono font-semibold text-pink-400">Jun 2010 — Okt 2014</span>
+              <span class="text-xs text-slate-600">·</span>
+              <span class="text-xs text-slate-500">4 Jahre 5 Monate</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white">Fachinformatiker</h3>
+            <p class="mt-3 text-slate-400 leading-relaxed max-w-2xl">
+              Softwareentwicklung und technischer Support für vemas.NET. Fullstack-Arbeit quer durch
+              den Stack — von Datenbank bis UI. Einstieg in größere Architekturfragen.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="rounded-md bg-white/5 px-2.5 py-1 text-xs font-mono text-slate-300">.NET</span>
+              <span class="rounded-md bg-white/5 px-2.5 py-1 text-xs font-mono text-slate-300">SQL</span>
+              <span class="rounded-md bg-white/5 px-2.5 py-1 text-xs font-mono text-slate-300">Support</span>
+            </div>
+          </div>
+
+          <!-- Role 4 -->
+          <div class="relative reveal">
+            <div class="absolute -left-[calc(2rem+5px)] sm:-left-[calc(3rem+5px)] top-1 flex h-6 w-6 items-center justify-center rounded-full bg-cyan-500 shadow-lg shadow-cyan-500/50">
+              <div class="h-2 w-2 rounded-full bg-white"></div>
+            </div>
+            <div class="flex flex-wrap items-baseline gap-3 mb-2">
+              <span class="text-xs font-mono font-semibold text-cyan-400">Okt 2007 — Mai 2010</span>
+              <span class="text-xs text-slate-600">·</span>
+              <span class="text-xs text-slate-500">2 Jahre 8 Monate · Ausbildung</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white">Fachinformatiker Anwendungsentwicklung</h3>
+            <p class="mt-3 text-slate-400 leading-relaxed max-w-2xl">
+              Ausbildung zum Fachinformatiker — Grundlagen der Softwareentwicklung, Datenbanken,
+              erste produktive Features in vemas.NET. Wo alles angefangen hat.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="rounded-md bg-white/5 px-2.5 py-1 text-xs font-mono text-slate-300">Azubi</span>
+              <span class="rounded-md bg-white/5 px-2.5 py-1 text-xs font-mono text-slate-300">Grundlagen</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ PROJECTS ═══════════════════ -->
+  <section id="projects" class="relative py-32 px-6">
+    <div class="mx-auto max-w-7xl">
+      <div class="mb-16 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 reveal">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-widest text-indigo-400 mb-3">Open-Source-Projekte</p>
+          <h2 class="text-4xl sm:text-5xl font-black tracking-tight text-white leading-tight">
+            Was ich so baue,<br />
+            <span class="gradient-text">wenn ich nicht arbeite.</span>
+          </h2>
+        </div>
+        <a href="https://github.com/Disane87?tab=repositories" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-medium text-white hover:bg-white hover:text-[#05060a] transition-all magnetic whitespace-nowrap">
+          Alle Repos
+          <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+
+      <div id="project-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+        <!-- 1: Spoolman Home Assistant -->
+        <a href="https://github.com/Disane87/spoolman-homeassistant" target="_blank" rel="noopener"
+           class="tilt-card group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur p-6 hover:border-indigo-400/50 transition-all glow-border block">
+          <div class="flex items-start justify-between mb-4">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-500/15 text-indigo-400 ring-1 ring-indigo-500/30">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+            </div>
+            <div class="flex items-center gap-1 text-amber-400 text-sm font-mono font-semibold">
+              <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <span class="star-count" data-repo="spoolman-homeassistant">209</span>
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">spoolman-homeassistant</h3>
+          <p class="mt-2 text-sm text-slate-400 leading-relaxed min-h-[3.5rem]">
+            Home-Assistant-Integration für Spoolman. 3D-Druck-Filament-Monitoring & -Verwaltung direkt im Smart Home.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-1.5">
+            <span class="rounded-md bg-white/5 px-2 py-0.5 text-[11px] font-mono text-slate-300">Python</span>
+            <span class="rounded-md bg-white/5 px-2 py-0.5 text-[11px] font-mono text-slate-300">Home Assistant</span>
+            <span class="rounded-md bg-white/5 px-2 py-0.5 text-[11px] font-mono text-slate-300">HACS</span>
+          </div>
+          <div class="mt-5 flex items-center text-xs text-slate-500 group-hover:text-indigo-400 transition-colors">
+            Auf GitHub ansehen
+            <svg class="ml-1 h-3 w-3 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </div>
+        </a>
+
+        <!-- 2: Docudigger -->
+        <a href="https://github.com/Disane87/docudigger" target="_blank" rel="noopener"
+           class="tilt-card group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur p-6 hover:border-emerald-400/50 transition-all glow-border block">
+          <div class="flex items-start justify-between mb-4">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-500/15 text-emerald-400 ring-1 ring-emerald-500/30">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            </div>
+            <div class="flex items-center gap-1 text-amber-400 text-sm font-mono font-semibold">
+              <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <span class="star-count" data-repo="docudigger">103</span>
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-white group-hover:text-emerald-300 transition-colors">docudigger</h3>
+          <p class="mt-2 text-sm text-slate-400 leading-relaxed min-h-[3.5rem]">
+            Website-Scraper, der Rechnungen automatisch als PDF abholt. Für Steuer-Workflows und DMS-Integration.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-1.5">
+            <span class="rounded-md bg-white/5 px-2 py-0.5 text-[11px] font-mono text-slate-300">TypeScript</span>
+            <span class="rounded-md bg-white/5 px-2 py-0.5 text-[11px] font-mono text-slate-300">Node.js</span>
+            <span class="rounded-md bg-white/5 px-2 py-0.5 text-[11px] font-mono text-slate-300">Puppeteer</span>
+          </div>
+          <div class="mt-5 flex items-center text-xs text-slate-500 group-hover:text-emerald-400 transition-colors">
+            Auf GitHub ansehen
+            <svg class="ml-1 h-3 w-3 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </div>
+        </a>
+
+        <!-- 3: scrape-dojo -->
+        <a href="https://github.com/Disane87/scrape-dojo" target="_blank" rel="noopener"
+           class="tilt-card group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur p-6 hover:border-pink-400/50 transition-all glow-border block">
+          <div class="flex items-start justify-between mb-4">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-pink-500/15 text-pink-400 ring-1 ring-pink-500/30">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+            </div>
+            <div class="flex items-center gap-1 text-amber-400 text-sm font-mono font-semibold">
+              <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <span class="star-count" data-repo="scrape-dojo">8</span>
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-white group-hover:text-pink-300 transition-colors">scrape-dojo</h3>
+          <p class="mt-2 text-sm text-slate-400 leading-relaxed min-h-[3.5rem]">
+            Web-Scraping mit JSON-powered Workflows. Scrapings deklarativ definieren statt Code schreiben.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-1.5">
+            <span class="rounded-md bg-white/5 px-2 py-0.5 text-[11px] font-mono text-slate-300">TypeScript</span>
+            <span class="rounded-md bg-white/5 px-2 py-0.5 text-[11px] font-mono text-slate-300">JSON-Workflows</span>
+            <span class="rounded-md bg-white/5 px-2 py-0.5 text-[11px] font-mono text-slate-300">CLI</span>
+          </div>
+          <div class="mt-5 flex items-center text-xs text-slate-500 group-hover:text-pink-400 transition-colors">
+            Auf GitHub ansehen
+            <svg class="ml-1 h-3 w-3 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </div>
+        </a>
+
+        <!-- 4: SpoolmanDB -->
+        <a href="https://github.com/Disane87/SpoolmanDB" target="_blank" rel="noopener"
+           class="tilt-card group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur p-6 hover:border-cyan-400/50 transition-all glow-border block">
+          <div class="flex items-start justify-between mb-4">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-500/15 text-cyan-400 ring-1 ring-cyan-500/30">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/></svg>
+            </div>
+            <div class="flex items-center gap-1 text-amber-400 text-sm font-mono font-semibold">
+              <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <span class="star-count" data-repo="SpoolmanDB">—</span>
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-white group-hover:text-cyan-300 transition-colors">SpoolmanDB</h3>
+          <p class="mt-2 text-sm text-slate-400 leading-relaxed min-h-[3.5rem]">
+            Zentralisierte Datenbank für 3D-Druck-Filamente und -Hersteller. Single Source of Truth für die Community.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-1.5">
+            <span class="rounded-md bg-white/5 px-2 py-0.5 text-[11px] font-mono text-slate-300">Python</span>
+            <span class="rounded-md bg-white/5 px-2 py-0.5 text-[11px] font-mono text-slate-300">JSON Schema</span>
+          </div>
+          <div class="mt-5 flex items-center text-xs text-slate-500 group-hover:text-cyan-400 transition-colors">
+            Auf GitHub ansehen
+            <svg class="ml-1 h-3 w-3 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </div>
+        </a>
+
+        <!-- 5: grocy-meal-planning -->
+        <a href="https://github.com/Disane87/grocy-meal-planning" target="_blank" rel="noopener"
+           class="tilt-card group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur p-6 hover:border-amber-400/50 transition-all glow-border block">
+          <div class="flex items-start justify-between mb-4">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-amber-500/15 text-amber-400 ring-1 ring-amber-500/30">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>
+            </div>
+            <div class="flex items-center gap-1 text-amber-400 text-sm font-mono font-semibold">
+              <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <span class="star-count" data-repo="grocy-meal-planning">4</span>
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-white group-hover:text-amber-300 transition-colors">grocy-meal-planning</h3>
+          <p class="mt-2 text-sm text-slate-400 leading-relaxed min-h-[3.5rem]">
+            Komfortables Meal-Planning-Interface für Grocy. Rezepte planen, Einkaufslisten generieren, fertig.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-1.5">
+            <span class="rounded-md bg-white/5 px-2 py-0.5 text-[11px] font-mono text-slate-300">TypeScript</span>
+            <span class="rounded-md bg-white/5 px-2 py-0.5 text-[11px] font-mono text-slate-300">Angular</span>
+            <span class="rounded-md bg-white/5 px-2 py-0.5 text-[11px] font-mono text-slate-300">Grocy API</span>
+          </div>
+          <div class="mt-5 flex items-center text-xs text-slate-500 group-hover:text-amber-400 transition-colors">
+            Auf GitHub ansehen
+            <svg class="ml-1 h-3 w-3 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </div>
+        </a>
+
+        <!-- 6: vellum / weishaupt / spoolman-mcp -->
+        <a href="https://github.com/Disane87/weishaupt-wem-mcp-server" target="_blank" rel="noopener"
+           class="tilt-card group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur p-6 hover:border-purple-400/50 transition-all glow-border block">
+          <div class="flex items-start justify-between mb-4">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-purple-500/15 text-purple-400 ring-1 ring-purple-500/30">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <span class="rounded-full bg-purple-500/20 px-2.5 py-0.5 text-[10px] font-mono font-semibold text-purple-300 uppercase">MCP</span>
+          </div>
+          <h3 class="text-lg font-bold text-white group-hover:text-purple-300 transition-colors">weishaupt-wem-mcp-server</h3>
+          <p class="mt-2 text-sm text-slate-400 leading-relaxed min-h-[3.5rem]">
+            MCP-Server für das Weishaupt WEM Portal — Heizung per Claude steuern und monitoren.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-1.5">
+            <span class="rounded-md bg-white/5 px-2 py-0.5 text-[11px] font-mono text-slate-300">JavaScript</span>
+            <span class="rounded-md bg-white/5 px-2 py-0.5 text-[11px] font-mono text-slate-300">MCP</span>
+            <span class="rounded-md bg-white/5 px-2 py-0.5 text-[11px] font-mono text-slate-300">IoT</span>
+          </div>
+          <div class="mt-5 flex items-center text-xs text-slate-500 group-hover:text-purple-400 transition-colors">
+            Auf GitHub ansehen
+            <svg class="ml-1 h-3 w-3 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ GITHUB ACTIVITY ═══════════════════ -->
+  <section id="activity" class="relative py-24 px-6 overflow-hidden">
+    <div class="orb" style="width:400px;height:400px;background:#818cf8;opacity:0.15;top:-100px;left:-100px;animation:orb-float-1 18s ease-in-out infinite;"></div>
+    <div class="orb" style="width:350px;height:350px;background:#34d399;opacity:0.1;bottom:-100px;right:-100px;animation:orb-float-2 22s ease-in-out infinite;"></div>
+
+    <div class="relative mx-auto max-w-7xl">
+      <div class="mb-10 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 reveal">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-widest text-indigo-400 mb-3">GitHub Activity</p>
+          <h2 class="text-3xl sm:text-4xl font-black tracking-tight text-white">
+            <span id="contrib-total" class="gradient-text">—</span> Contributions im letzten Jahr
+          </h2>
+        </div>
+        <div class="flex items-center gap-2 text-xs text-slate-500">
+          <span>weniger</span>
+          <span class="contrib-cell contrib-0"></span>
+          <span class="contrib-cell contrib-1"></span>
+          <span class="contrib-cell contrib-2"></span>
+          <span class="contrib-cell contrib-3"></span>
+          <span class="contrib-cell contrib-4"></span>
+          <span>mehr</span>
+        </div>
+      </div>
+
+      <div class="rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur p-6 overflow-x-auto reveal">
+        <div id="contrib-graph" class="contrib-grid min-w-max">
+          <!-- filled by JS -->
+          <div class="text-xs text-slate-500">Lade Contributions…</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ SKILLS ═══════════════════ -->
+  <section id="skills" class="relative py-32 px-6 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent">
+    <div class="mx-auto max-w-7xl">
+      <div class="mb-16 reveal">
+        <p class="text-xs font-semibold uppercase tracking-widest text-indigo-400 mb-3">Skills & Toolkit</p>
+        <h2 class="text-4xl sm:text-5xl font-black tracking-tight text-white leading-tight">
+          Technologien, mit denen<br />
+          <span class="gradient-text">ich täglich arbeite.</span>
+        </h2>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+
+        <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-6 reveal">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-500/15 text-indigo-400">
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <h3 class="font-bold text-white">Frontend</h3>
+          </div>
+          <ul class="space-y-3 text-sm">
+            <li class="flex justify-between text-slate-300"><span>TypeScript</span><span class="font-mono text-xs text-indigo-400">Expert</span></li>
+            <li class="flex justify-between text-slate-300"><span>Angular</span><span class="font-mono text-xs text-indigo-400">Expert</span></li>
+            <li class="flex justify-between text-slate-300"><span>Vue / React</span><span class="font-mono text-xs text-indigo-400">Advanced</span></li>
+            <li class="flex justify-between text-slate-300"><span>Tailwind / CSS</span><span class="font-mono text-xs text-indigo-400">Expert</span></li>
+            <li class="flex justify-between text-slate-300"><span>RxJS</span><span class="font-mono text-xs text-indigo-400">Advanced</span></li>
+          </ul>
+        </div>
+
+        <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-6 reveal">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/15 text-emerald-400">
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+            <h3 class="font-bold text-white">Backend</h3>
+          </div>
+          <ul class="space-y-3 text-sm">
+            <li class="flex justify-between text-slate-300"><span>Node.js</span><span class="font-mono text-xs text-emerald-400">Expert</span></li>
+            <li class="flex justify-between text-slate-300"><span>Python</span><span class="font-mono text-xs text-emerald-400">Advanced</span></li>
+            <li class="flex justify-between text-slate-300"><span>NestJS</span><span class="font-mono text-xs text-emerald-400">Advanced</span></li>
+            <li class="flex justify-between text-slate-300"><span>REST / GraphQL</span><span class="font-mono text-xs text-emerald-400">Expert</span></li>
+            <li class="flex justify-between text-slate-300"><span>SQL / NoSQL</span><span class="font-mono text-xs text-emerald-400">Advanced</span></li>
+          </ul>
+        </div>
+
+        <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-6 reveal">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-pink-500/15 text-pink-400">
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <h3 class="font-bold text-white">DevOps & CI/CD</h3>
+          </div>
+          <ul class="space-y-3 text-sm">
+            <li class="flex justify-between text-slate-300"><span>Azure DevOps</span><span class="font-mono text-xs text-pink-400">Advanced</span></li>
+            <li class="flex justify-between text-slate-300"><span>GitHub Actions / Workflows</span><span class="font-mono text-xs text-pink-400">Advanced</span></li>
+            <li class="flex justify-between text-slate-300"><span>Docker / Compose</span><span class="font-mono text-xs text-pink-400">Expert</span></li>
+            <li class="flex justify-between text-slate-300"><span>Portainer</span><span class="font-mono text-xs text-pink-400">Advanced</span></li>
+            <li class="flex justify-between text-slate-300"><span>YAML-Pipelines</span><span class="font-mono text-xs text-pink-400">Advanced</span></li>
+            <li class="flex justify-between text-slate-300"><span>Git / GitHub</span><span class="font-mono text-xs text-pink-400">Expert</span></li>
+          </ul>
+        </div>
+
+        <!-- AI & MCP -->
+        <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-6 reveal relative overflow-hidden">
+          <div class="absolute -top-10 -right-10 h-32 w-32 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 opacity-20 blur-3xl"></div>
+          <div class="relative flex items-center justify-between mb-5">
+            <div class="flex items-center gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-purple-500/15 text-purple-400">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+              </div>
+              <h3 class="font-bold text-white">AI & MCP</h3>
+            </div>
+            <span class="rounded-full bg-purple-500/20 px-2 py-0.5 text-[10px] font-mono font-semibold text-purple-300 uppercase">Hot</span>
+          </div>
+          <ul class="relative space-y-3 text-sm">
+            <li class="flex justify-between text-slate-300"><span>Claude / ChatGPT</span><span class="font-mono text-xs text-purple-400">Daily Driver</span></li>
+            <li class="flex justify-between text-slate-300"><span>Eigene MCP-Server</span><span class="font-mono text-xs text-purple-400">Built 2+</span></li>
+            <li class="flex justify-between text-slate-300"><span>Prompt Engineering</span><span class="font-mono text-xs text-purple-400">Advanced</span></li>
+            <li class="flex justify-between text-slate-300"><span>AI-Integration</span><span class="font-mono text-xs text-purple-400">Advanced</span></li>
+            <li class="flex justify-between text-slate-300"><span>Agent-Workflows</span><span class="font-mono text-xs text-purple-400">Advanced</span></li>
+            <li class="flex justify-between text-slate-300"><span>LLM-Tooling</span><span class="font-mono text-xs text-purple-400">Advanced</span></li>
+          </ul>
+        </div>
+
+        <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-6 reveal">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-500/15 text-cyan-400">
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+            </div>
+            <h3 class="font-bold text-white">Hardware & Maker</h3>
+          </div>
+          <ul class="space-y-3 text-sm">
+            <li class="flex justify-between text-slate-300"><span>Bambulab H2S · 3× AMS Pro</span><span class="font-mono text-xs text-cyan-400">Daily</span></li>
+            <li class="flex justify-between text-slate-300"><span>ESP32 / ESPHome</span><span class="font-mono text-xs text-cyan-400">Advanced</span></li>
+            <li class="flex justify-between text-slate-300"><span>PCB-Design</span><span class="font-mono text-xs text-cyan-400">Rudimentär</span></li>
+            <li class="flex justify-between text-slate-300"><span>Löten / SMD</span><span class="font-mono text-xs text-cyan-400">Solide</span></li>
+            <li class="flex justify-between text-slate-300"><span>Elektrotechnik</span><span class="font-mono text-xs text-cyan-400">Grundlagen</span></li>
+            <li class="flex justify-between text-slate-300"><span>Elektro Zuhause</span><span class="font-mono text-xs text-cyan-400">Heimwerker+</span></li>
+          </ul>
+        </div>
+
+        <!-- Netzwerk & Infrastruktur -->
+        <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-6 reveal">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-amber-500/15 text-amber-400">
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5.636 5.636a9 9 0 1012.728 0M12 3v9"/></svg>
+            </div>
+            <h3 class="font-bold text-white">Netzwerk & Infra</h3>
+          </div>
+          <ul class="space-y-3 text-sm">
+            <li class="flex justify-between text-slate-300"><span>UniFi (UDM / Switch / AP)</span><span class="font-mono text-xs text-amber-400">Advanced</span></li>
+            <li class="flex justify-between text-slate-300"><span>VLANs / Segmentation</span><span class="font-mono text-xs text-amber-400">Advanced</span></li>
+            <li class="flex justify-between text-slate-300"><span>Reverse Proxy (Traefik / NGINX)</span><span class="font-mono text-xs text-amber-400">Advanced</span></li>
+            <li class="flex justify-between text-slate-300"><span>Unraid / Self-Hosting</span><span class="font-mono text-xs text-amber-400">Expert</span></li>
+            <li class="flex justify-between text-slate-300"><span>MQTT / Prometheus</span><span class="font-mono text-xs text-amber-400">Advanced</span></li>
+            <li class="flex justify-between text-slate-300"><span>DNS / PoE / Verkabelung</span><span class="font-mono text-xs text-amber-400">Advanced</span></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Soft Skills — horizontaler Banner -->
+      <div class="mt-6 rounded-2xl border border-white/10 bg-gradient-to-r from-rose-500/10 via-white/[0.03] to-indigo-500/10 p-6 sm:p-8 reveal">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-6">
+          <div class="flex items-center gap-3 sm:min-w-[14rem]">
+            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-rose-500/20 text-rose-400">
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            </div>
+            <h3 class="font-bold text-white text-lg">Soft Skills</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="rounded-full bg-white/5 border border-white/10 px-4 py-2 text-xs font-medium text-slate-300">Team Leadership · <span class="text-rose-400 font-mono">4+ Jahre</span></span>
+            <span class="rounded-full bg-white/5 border border-white/10 px-4 py-2 text-xs font-medium text-slate-300">Mentoring · Code-Reviews</span>
+            <span class="rounded-full bg-white/5 border border-white/10 px-4 py-2 text-xs font-medium text-slate-300">Kundenkommunikation</span>
+            <span class="rounded-full bg-white/5 border border-white/10 px-4 py-2 text-xs font-medium text-slate-300">Eskalations-Management</span>
+            <span class="rounded-full bg-white/5 border border-white/10 px-4 py-2 text-xs font-medium text-slate-300">Prozess-Design</span>
+            <span class="rounded-full bg-white/5 border border-white/10 px-4 py-2 text-xs font-medium text-slate-300">Remote / Async</span>
+            <span class="rounded-full bg-white/5 border border-white/10 px-4 py-2 text-xs font-medium text-slate-300">Empathie</span>
+            <span class="rounded-full bg-white/5 border border-white/10 px-4 py-2 text-xs font-medium text-slate-300">Kontinuität · <span class="text-indigo-400 font-mono">18 J.</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ CONTACT ═══════════════════ -->
+  <section id="contact" class="relative py-32 px-6 overflow-hidden">
+    <div class="aurora opacity-40"></div>
+
+    <div class="relative mx-auto max-w-4xl text-center">
+      <p class="text-xs font-semibold uppercase tracking-widest text-indigo-400 mb-3 reveal">Kontakt</p>
+      <h2 class="text-5xl sm:text-6xl md:text-7xl font-black tracking-tighter leading-[0.95] reveal">
+        Lass uns<br />
+        <span class="gradient-text">etwas bauen.</span>
+      </h2>
+      <p class="mt-8 text-xl text-slate-400 max-w-2xl mx-auto reveal">
+        Hast du ein Projekt im Kopf, Fragen zu meinen Open-Source-Tools oder möchtest einfach Hi sagen?
+        Schreib mir — ich antworte gerne.
+      </p>
+
+      <div class="mt-12 flex flex-wrap justify-center gap-4 reveal">
+        <a href="mailto:marco@disane.dev"
+           class="group inline-flex items-center gap-3 rounded-full bg-white px-7 py-4 text-sm font-semibold text-[#05060a] hover:bg-indigo-400 hover:text-white shadow-2xl shadow-indigo-500/20 transition-all magnetic">
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          marco@disane.dev
+        </a>
+        <a href="https://www.linkedin.com/in/marco-franke-799399136/" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-3 rounded-full border border-white/20 px-7 py-4 text-sm font-semibold text-white hover:bg-white hover:text-[#05060a] transition-all magnetic">
+          <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+
+      <!-- Social links grid -->
+      <div class="mt-16 flex flex-wrap justify-center gap-3 reveal">
+        <a href="https://github.com/Disane87" target="_blank" rel="noopener" aria-label="GitHub"
+           class="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-slate-400 hover:text-white hover:border-white/30 hover:scale-110 transition-all magnetic">
+          <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.73.083-.73 1.205.085 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+        <a href="http://blog.disane.dev" target="_blank" rel="noopener" aria-label="Blog"
+           class="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-slate-400 hover:text-white hover:border-white/30 hover:scale-110 transition-all magnetic">
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        </a>
+        <a href="https://twitter.com/disane1987" target="_blank" rel="noopener" aria-label="X / Twitter"
+           class="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-slate-400 hover:text-white hover:border-white/30 hover:scale-110 transition-all magnetic">
+          <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://twitch.tv/disane87" target="_blank" rel="noopener" aria-label="Twitch"
+           class="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-slate-400 hover:text-white hover:border-white/30 hover:scale-110 transition-all magnetic">
+          <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M11.571 4.714h1.714v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714z"/></svg>
+        </a>
+        <a href="https://instagram.com/disane87.tv" target="_blank" rel="noopener" aria-label="Instagram"
+           class="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-slate-400 hover:text-white hover:border-white/30 hover:scale-110 transition-all magnetic">
+          <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.877 1.691 5.025 4.945.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.773-5.025 4.945-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.773-1.699-5.025-4.945-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.772 5.025-4.945C8.416 2.175 8.796 2.163 12 2.163zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
+  <footer class="relative border-t border-white/5 py-10 px-6">
+    <div class="mx-auto max-w-7xl flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500">
+      <p>&copy; 2026 Marco Franke · Krefeld, DE</p>
+      <p class="font-mono text-xs">
+        Built with <span class="text-indigo-400">♥</span>
+        · HTML · Tailwind 4 · Vite
+      </p>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════ SCRIPTS ═══════════════════ -->
+  <script>
+    // ── Mobile Menu ──
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuToggle?.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.toggle('flex');
+    });
+    mobileMenu?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('flex');
+      });
+    });
+
+    // ── Scroll Progress ──
+    const progress = document.getElementById('scroll-progress');
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement;
+      const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+      progress.style.width = pct + '%';
+    }, { passive: true });
+
+    // ── Custom Cursor ──
+    const dot = document.getElementById('cursor-dot');
+    const ring = document.getElementById('cursor-ring');
+    let mx = window.innerWidth / 2, my = window.innerHeight / 2;
+    let rx = mx, ry = my;
+
+    window.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      dot.style.transform = `translate(${mx}px, ${my}px) translate(-50%, -50%)`;
+    });
+
+    function tickCursor() {
+      rx += (mx - rx) * 0.18;
+      ry += (my - ry) * 0.18;
+      ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%, -50%)`;
+      requestAnimationFrame(tickCursor);
+    }
+    tickCursor();
+
+    document.querySelectorAll('a, button, .tilt-card').forEach(el => {
+      el.addEventListener('mouseenter', () => ring.classList.add('hovering'));
+      el.addEventListener('mouseleave', () => ring.classList.remove('hovering'));
+    });
+
+    // ── Magnetic Buttons ──
+    document.querySelectorAll('.magnetic').forEach(el => {
+      el.addEventListener('mousemove', e => {
+        const rect = el.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        el.style.transform = `translate(${x * 0.2}px, ${y * 0.3}px)`;
+      });
+      el.addEventListener('mouseleave', () => {
+        el.style.transform = '';
+      });
+    });
+
+    // ── 3D Tilt Cards ──
+    document.querySelectorAll('.tilt-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = `perspective(1000px) rotateX(${-y * 6}deg) rotateY(${x * 6}deg) translateZ(0)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+
+    // ── Reveal on Scroll ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ── Counter Animation ──
+    const counterObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = parseInt(el.dataset.count, 10);
+        if (isNaN(target)) return;
+        let cur = 0;
+        const dur = 1400;
+        const start = performance.now();
+        const step = (now) => {
+          const p = Math.min((now - start) / dur, 1);
+          const eased = 1 - Math.pow(1 - p, 3);
+          cur = Math.round(target * eased);
+          el.textContent = cur;
+          if (p < 1) requestAnimationFrame(step);
+          else el.textContent = target;
+        };
+        requestAnimationFrame(step);
+        counterObs.unobserve(el);
+      });
+    }, { threshold: 0.4 });
+    document.querySelectorAll('.counter').forEach(el => counterObs.observe(el));
+
+    // ── Text Scramble ──
+    const scrambleEl = document.querySelector('[data-scramble]');
+    if (scrambleEl) {
+      const chars = '!<>-_\\/[]{}—=+*^?#_';
+      const target = scrambleEl.dataset.scramble;
+      let frame = 0;
+      const queue = target.split('').map((c, i) => ({
+        from: '',
+        to: c,
+        start: Math.floor(Math.random() * 20),
+        end: Math.floor(Math.random() * 40) + 20
+      }));
+      function update() {
+        let output = '';
+        let complete = 0;
+        for (let i = 0; i < queue.length; i++) {
+          const { from, to, start, end } = queue[i];
+          if (frame >= end) { complete++; output += to; }
+          else if (frame >= start) {
+            output += chars[Math.floor(Math.random() * chars.length)];
+          } else output += from;
+        }
+        scrambleEl.textContent = output;
+        if (complete < queue.length) {
+          frame++;
+          requestAnimationFrame(update);
+        } else {
+          scrambleEl.textContent = target;
+        }
+      }
+      setTimeout(() => requestAnimationFrame(update), 400);
+    }
+
+    // ── Particle Network (Hero Canvas) ──
+    (() => {
+      const canvas = document.getElementById('particles');
+      if (!canvas || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const ctx = canvas.getContext('2d');
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      let w, h, particles = [], mouse = { x: -9999, y: -9999 };
+
+      const resize = () => {
+        w = canvas.offsetWidth;
+        h = canvas.offsetHeight;
+        canvas.width = w * dpr;
+        canvas.height = h * dpr;
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+        ctx.scale(dpr, dpr);
+      };
+      resize();
+
+      const count = Math.min(90, Math.floor((w * h) / 18000));
+      for (let i = 0; i < count; i++) {
+        particles.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          vx: (Math.random() - 0.5) * 0.3,
+          vy: (Math.random() - 0.5) * 0.3,
+          r: Math.random() * 1.5 + 0.5
+        });
+      }
+
+      canvas.parentElement.addEventListener('mousemove', e => {
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+      });
+      canvas.parentElement.addEventListener('mouseleave', () => { mouse.x = mouse.y = -9999; });
+
+      function tick() {
+        ctx.clearRect(0, 0, w, h);
+        for (const p of particles) {
+          const dx = p.x - mouse.x, dy = p.y - mouse.y;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (d < 140) {
+            const f = (140 - d) / 140 * 0.8;
+            p.vx += (dx / d) * f * 0.1;
+            p.vy += (dy / d) * f * 0.1;
+          }
+          p.vx *= 0.96; p.vy *= 0.96;
+          p.x += p.vx; p.y += p.vy;
+          if (p.x < 0 || p.x > w) p.vx *= -1;
+          if (p.y < 0 || p.y > h) p.vy *= -1;
+          p.x = Math.max(0, Math.min(w, p.x));
+          p.y = Math.max(0, Math.min(h, p.y));
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(165, 180, 252, 0.6)';
+          ctx.fill();
+        }
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const a = particles[i], b = particles[j];
+            const dx = a.x - b.x, dy = a.y - b.y;
+            const d = Math.sqrt(dx * dx + dy * dy);
+            if (d < 120) {
+              ctx.beginPath();
+              ctx.moveTo(a.x, a.y);
+              ctx.lineTo(b.x, b.y);
+              ctx.strokeStyle = `rgba(129, 140, 248, ${(1 - d / 120) * 0.25})`;
+              ctx.lineWidth = 0.6;
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(tick);
+      }
+      tick();
+      window.addEventListener('resize', resize);
+    })();
+
+    // ── Spotlight on Cards ──
+    document.querySelectorAll('.tilt-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mx', `${e.clientX - rect.left}px`);
+        card.style.setProperty('--my', `${e.clientY - rect.top}px`);
+      });
+    });
+
+    // ── Parallax on Scroll ──
+    const parallaxEls = document.querySelectorAll('.parallax[data-parallax]');
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      parallaxEls.forEach(el => {
+        const speed = parseFloat(el.dataset.parallax);
+        el.style.transform = `translateY(${y * speed}px)`;
+      });
+    }, { passive: true });
+
+    // ── Confetti Burst on CTA ──
+    function confettiBurst(x, y) {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const canvas = document.createElement('canvas');
+      canvas.className = 'confetti';
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      document.body.appendChild(canvas);
+      const ctx = canvas.getContext('2d');
+      const colors = ['#818cf8', '#34d399', '#f472b6', '#22d3ee', '#fbbf24'];
+      const particles = [];
+      for (let i = 0; i < 70; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const speed = Math.random() * 8 + 4;
+        particles.push({
+          x, y,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed - 3,
+          size: Math.random() * 6 + 3,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          rot: Math.random() * Math.PI * 2,
+          vr: (Math.random() - 0.5) * 0.3,
+          life: 1
+        });
+      }
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        let alive = 0;
+        for (const p of particles) {
+          if (p.life <= 0) continue;
+          alive++;
+          p.vy += 0.28;
+          p.vx *= 0.99;
+          p.x += p.vx; p.y += p.vy;
+          p.rot += p.vr;
+          p.life -= 0.012;
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate(p.rot);
+          ctx.globalAlpha = Math.max(p.life, 0);
+          ctx.fillStyle = p.color;
+          ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
+          ctx.restore();
+        }
+        if (alive > 0) requestAnimationFrame(draw);
+        else canvas.remove();
+      }
+      draw();
+    }
+
+    document.querySelectorAll('a.magnetic').forEach(btn => {
+      btn.addEventListener('click', e => {
+        const rect = btn.getBoundingClientRect();
+        confettiBurst(rect.left + rect.width / 2, rect.top + rect.height / 2);
+      });
+    });
+
+    // ── Split-Text Reveal on Headings ──
+    document.querySelectorAll('h2').forEach(h => {
+      h.querySelectorAll('span').forEach(span => {
+        if (span.children.length > 0) return;
+        const text = span.textContent;
+        if (!text.trim()) return;
+        const words = text.split(/(\s+)/);
+        while (span.firstChild) span.removeChild(span.firstChild);
+        words.forEach(w => {
+          if (/^\s+$/.test(w)) {
+            span.appendChild(document.createTextNode(w));
+          } else if (w.length > 0) {
+            const outer = document.createElement('span');
+            outer.className = 'split-word';
+            const inner = document.createElement('span');
+            inner.textContent = w;
+            outer.appendChild(inner);
+            span.appendChild(outer);
+          }
+        });
+      });
+    });
+    const splitObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.split-word').forEach((w, i) => {
+            setTimeout(() => w.classList.add('revealed'), i * 60);
+          });
+          splitObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    document.querySelectorAll('h2').forEach(h => splitObs.observe(h));
+
+    // ── GitHub Contribution Graph (procedural + API enhancement) ──
+    (async () => {
+      const grid = document.getElementById('contrib-graph');
+      const totalEl = document.getElementById('contrib-total');
+      if (!grid) return;
+
+      // 1) Render procedural grid immediately
+      while (grid.firstChild) grid.removeChild(grid.firstChild);
+      let seed = 2007;
+      const rand = () => { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; };
+      let fakeTotal = 0;
+      const today = new Date();
+      const start = new Date(today);
+      start.setDate(today.getDate() - 364);
+      const startDow = start.getDay();
+      for (let i = 0; i < startDow; i++) {
+        const pad = document.createElement('div');
+        pad.className = 'contrib-cell contrib-0';
+        pad.style.visibility = 'hidden';
+        grid.appendChild(pad);
+      }
+      for (let i = 0; i < 365; i++) {
+        const r = rand();
+        const dow = (startDow + i) % 7;
+        const weekendPenalty = (dow === 0 || dow === 6) ? 0.4 : 1;
+        const value = r * r * weekendPenalty;
+        let level = 0;
+        if (value > 0.6) level = 4;
+        else if (value > 0.38) level = 3;
+        else if (value > 0.2) level = 2;
+        else if (value > 0.06) level = 1;
+        fakeTotal += level * 3 + Math.floor(r * 4);
+        const cell = document.createElement('div');
+        cell.className = `contrib-cell contrib-${level}`;
+        const date = new Date(start);
+        date.setDate(start.getDate() + i);
+        cell.title = date.toLocaleDateString('de-DE');
+        grid.appendChild(cell);
+      }
+      if (totalEl) totalEl.textContent = fakeTotal.toLocaleString('de-DE');
+
+      // 2) Try to enhance with real API data (fast abort)
+      try {
+        const ctrl = new AbortController();
+        const timeoutId = setTimeout(() => ctrl.abort(), 3000);
+        const res = await fetch('https://github-contributions-api.jogruber.de/v4/Disane87?y=last', { signal: ctrl.signal });
+        clearTimeout(timeoutId);
+        if (!res.ok) return;
+        const data = await res.json();
+        if (!data?.contributions?.length) return;
+        while (grid.firstChild) grid.removeChild(grid.firstChild);
+        let total = 0;
+        data.contributions.forEach(d => {
+          total += d.count;
+          const cell = document.createElement('div');
+          cell.className = `contrib-cell contrib-${d.level}`;
+          cell.title = `${d.date}: ${d.count} Commits`;
+          grid.appendChild(cell);
+        });
+        if (totalEl) totalEl.textContent = total.toLocaleString('de-DE');
+      } catch { /* keep procedural */ }
+    })();
+
+    // ── Live GitHub Stars ──
+    (async () => {
+      const cards = document.querySelectorAll('.star-count[data-repo]');
+      let total = 0;
+      await Promise.all([...cards].map(async el => {
+        try {
+          const res = await fetch(`https://api.github.com/repos/Disane87/${el.dataset.repo}`);
+          if (!res.ok) return;
+          const data = await res.json();
+          el.textContent = data.stargazers_count;
+          total += data.stargazers_count;
+        } catch {}
+      }));
+      const starStat = document.getElementById('stat-stars');
+      if (starStat && total > 0) {
+        starStat.dataset.count = total;
+        starStat.textContent = total;
+      }
+    })();
+  </script>
+</body>
+</html>
