@@ -1,0 +1,56 @@
+# Portfolio disane.dev: mit Vite bauen und per FTPS zu All-Inkl deployen
+#
+# Benötigte GitHub-Secrets (Repo → Settings → Secrets and variables → Actions):
+#   FTP_SERVER     w0083069.kasserver.com
+#   FTP_USERNAME   FTP-Benutzer des Hauptkontos
+#   FTP_PASSWORD   zugehöriges Passwort
+#
+# Optional als Repository-Variable:
+#   FTP_SERVER_DIR Zielverzeichnis auf dem Server (Standard: /disane.dev/)
+
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Node einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Abhängigkeiten installieren
+        run: npm ci
+
+      - name: Site bauen (Vite)
+        run: npm run build
+
+      # Schutz vor einem leeren Deploy: lieber abbrechen als die Live-Seite leeren.
+      - name: Build prüfen
+        run: |
+          test -s dist/index.html || { echo "dist/index.html fehlt oder ist leer"; exit 1; }
+          grep -q "subthiel.eu" dist/index.html || echo "Hinweis: kein Subthiel-Link im Build gefunden"
+
+      - name: Per FTPS deployen
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          local-dir: dist/
+          server-dir: ${{ vars.FTP_SERVER_DIR || '/disane.dev/' }}
+          dangerous-clean-slate: false
